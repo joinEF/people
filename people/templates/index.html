@@ -23,11 +23,21 @@
       {% for person in people %}
         <h4>{{ person.name }}</h4>
         <p>
-          <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ person.url }}">{{ person.url }}</a><br>
-          <i class="fi-mail"></i>&nbsp;&nbsp;<a href="mailto:{{ person.email }}">{{ person.email }}</a><br>
-          <i class="fi-social-twitter"></i>&nbsp;&nbsp;<a href="https://twitter.com/{{ person.twitter }}">@{{ person.twitter }}</a><br>
-          <i class="fi-social-github"></i>&nbsp;&nbsp;<a href="https://github.com/{{ person.github }}">{{ person.github }}</a><br>
-          <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ person.linkedin }}">{{ person.linkedin }}</a><br>
+          {% if person.url %}
+            <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ person.url }}">{{ person.url }}</a><br>
+          {% endif %}
+          {% if person.email %}
+            <i class="fi-mail"></i>&nbsp;&nbsp;<a href="mailto:{{ person.email }}">{{ person.email }}</a><br>
+          {% endif %}
+          {% if person.twitter %}
+            <i class="fi-social-twitter"></i>&nbsp;&nbsp;<a href="https://twitter.com/{{ person.twitter }}">@{{ person.twitter }}</a><br>
+          {% endif %}
+          {% if person.github %}
+            <i class="fi-social-github"></i>&nbsp;&nbsp;<a href="https://github.com/{{ person.github }}">{{ person.github }}</a><br>
+          {% endif %}
+          {% if person.linkedin %}
+            <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ person.linkedin }}">{{ person.linkedin }}</a><br>
+          {% endif %}
         </p>
       {% endfor %}
     </div>
