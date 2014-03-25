@@ -9,6 +9,7 @@
 
   <link rel="stylesheet" href="/static/foundation/css/normalize.css">
   <link rel="stylesheet" href="/static/foundation/css/foundation.css">
+  <link rel="stylesheet" href="/static/foundation/css/foundation-icons.css">
 
   <script src="/static/foundation/js/vendor/modernizr.js"></script>
 
@@ -18,6 +19,17 @@
   <div class="row">
     <div class="large-12 columns">
       <h1>People</h1>
+
+      {% for person in people %}
+        <h4>{{ person.name }}</h4>
+        <p>
+          <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ person.url }}">{{ person.url }}</a><br>
+          <i class="fi-mail"></i>&nbsp;&nbsp;<a href="mailto:{{ person.email }}">{{ person.email }}</a><br>
+          <i class="fi-social-twitter"></i>&nbsp;&nbsp;<a href="https://twitter.com/{{ person.twitter }}">@{{ person.twitter }}</a><br>
+          <i class="fi-social-github"></i>&nbsp;&nbsp;<a href="https://github.com/{{ person.github }}">{{ person.github }}</a><br>
+          <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ person.linkedin }}">{{ person.linkedin }}</a><br>
+        </p>
+      {% endfor %}
     </div>
   </div>
 
