@@ -1,6 +1,8 @@
 People
 ======
 
+http://founder-school-people.herokuapp.com/
+
 Resources
 ---------
 
