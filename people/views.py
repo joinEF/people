@@ -71,7 +71,8 @@ def profile(request, username):
             'linkedin': 'calumjeadie',
             'url': 'http://calumjeadie.com',
             'user': user,
-            'get_absolute_url': '/CalumJEadie'
+            'get_absolute_url': '/CalumJEadie',
+            'degree_subject': 'CS'
         },
         'jordnb': {
             'university': 'Cambridge',
@@ -82,7 +83,8 @@ def profile(request, username):
             'linkedin': 'jordanburgess',
             'url': 'http://jordanburgess.com/',
             'user': user,
-            'get_absolute_url': '/jordnb'
+            'get_absolute_url': '/jordnb',
+            'degree_subject': 'CS'
         },
         'FraserAtkins': {
             'university': 'Cambridge',
@@ -92,7 +94,8 @@ def profile(request, username):
             'linkedin': 'fraseratkins',
             'url': 'http://www.fraseratkins.com/',
             'user': user,
-            'get_absolute_url': '/FraserAtkins'
+            'get_absolute_url': '/FraserAtkins',
+            'degree_subject': 'CS'
         },
         'joeroot': {
             'university': 'Imperial & Oxford',
@@ -102,7 +105,8 @@ def profile(request, username):
             'linkedin': 'josephsroot',
             'url': 'http://joeroot.com/',
             'user': user,
-            'get_absolute_url': '/joeroot'
+            'get_absolute_url': '/joeroot',
+            'degree_subject': 'CS'
         }
     }
     person = people[user.username]

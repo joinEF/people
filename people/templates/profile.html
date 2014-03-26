@@ -1,53 +1,48 @@
+{% extends '__page.html' %}
+
+{% load static }
 {% load avatar_tags %}
-<!DOCTYPE html>
-<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
-<html class="no-js" lang="en" >
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>People</title>
+{% block head_title %}{{ person.user.get_full_name }}{% endblock %}
 
-  <link rel="stylesheet" href="/static/foundation/css/normalize.css">
-  <link rel="stylesheet" href="/static/foundation/css/foundation.css">
-  <link rel="stylesheet" href="/static/foundation/css/foundation-icons.css">
-
-  <script src="/static/foundation/js/vendor/modernizr.js"></script>
-
-</head>
-<body>
-
+{% block content %}
   <div class="row">
-    <div class="large-12 columns">
+    <div class="columns">
 
-        <h1>{{ person.user.get_full_name }}</h1>
-
-        {% if person.url %}
-          <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ person.url }}">{{ person.url }}</a><br>
-        {% endif %}
-        {% if person.email %}
-          <i class="fi-mail"></i>&nbsp;&nbsp;<a href="mailto:{{ person.email }}">{{ person.email }}</a><br>
-        {% endif %}
-        {% if person.twitter %}
-          <i class="fi-social-twitter"></i>&nbsp;&nbsp;<a href="https://twitter.com/{{ person.twitter }}">@{{ person.twitter }}</a><br>
-        {% endif %}
-        {% if person.github %}
-          <i class="fi-social-github"></i>&nbsp;&nbsp;<a href="https://github.com/{{ person.github }}">{{ person.github }}</a><br>
-        {% endif %}
-        {% if person.linkedin %}
-          <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ person.linkedin }}">{{ person.linkedin }}</a><br>
-        {% endif %}
-        {{ person.university }}<br>
-        {{ person.graduation_year }}<br>
-        {% avatar person.user %}
+        <div class="row" style="margin-top: 2rem;">
+          <div class="column small-3">
+            <img src="{% avatar_url person.user 400 %}" style="border-radius: 5px;">
+            <h3 style="margin-top: 1rem; margin-bottom: 0;">
+              {{ person.user.get_full_name }}
+            </h3>
+            <h5 class="subheader" style="margin-top: 0;">
+              {{ person.user.username }}
+            </h5>
+            <hr>
+            <p>
+              {{ person.degree_subject }}, {{ person.university }}<br>
+              {{ person.graduation_year }}<br>
+            </p>
+            <hr>
+            <p>
+              {% if person.url %}
+                <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ person.url }}">{{ person.url }}</a><br>
+              {% endif %}
+              <i class="fi-mail"></i>&nbsp;&nbsp;<a href="mailto:{{ person.email }}">{{ person.user.email }}</a><br>
+              {% if person.twitter %}
+                <i class="fi-social-twitter"></i>&nbsp;&nbsp;<a href="https://twitter.com/{{ person.twitter }}">@{{ person.twitter }}</a><br>
+              {% endif %}
+              {% if person.github %}
+                <i class="fi-social-github"></i>&nbsp;&nbsp;<a href="https://github.com/{{ person.github }}">{{ person.github }}</a><br>
+              {% endif %}
+              {% if person.linkedin %}
+                <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ person.linkedin }}">{{ person.linkedin }}</a><br>
+              {% endif %}
+            </p>
+          </div>
+          <div class="column small-9">
+          </div>
       
     </div>
   </div>
-
-  <script src="/static/foundation/js/vendor/jquery.js"></script>
-  <script src="/static/foundation/js/foundation.min.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
-</body>
-</html>
+{% endblock %}
