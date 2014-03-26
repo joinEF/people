@@ -1,0 +1,53 @@
+{% load avatar_tags %}
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People</title>
+
+  <link rel="stylesheet" href="/static/foundation/css/normalize.css">
+  <link rel="stylesheet" href="/static/foundation/css/foundation.css">
+  <link rel="stylesheet" href="/static/foundation/css/foundation-icons.css">
+
+  <script src="/static/foundation/js/vendor/modernizr.js"></script>
+
+</head>
+<body>
+
+  <div class="row">
+    <div class="large-12 columns">
+
+        <h1>{{ person.user.get_full_name }}</h1>
+
+        {% if person.url %}
+          <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ person.url }}">{{ person.url }}</a><br>
+        {% endif %}
+        {% if person.email %}
+          <i class="fi-mail"></i>&nbsp;&nbsp;<a href="mailto:{{ person.email }}">{{ person.email }}</a><br>
+        {% endif %}
+        {% if person.twitter %}
+          <i class="fi-social-twitter"></i>&nbsp;&nbsp;<a href="https://twitter.com/{{ person.twitter }}">@{{ person.twitter }}</a><br>
+        {% endif %}
+        {% if person.github %}
+          <i class="fi-social-github"></i>&nbsp;&nbsp;<a href="https://github.com/{{ person.github }}">{{ person.github }}</a><br>
+        {% endif %}
+        {% if person.linkedin %}
+          <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ person.linkedin }}">{{ person.linkedin }}</a><br>
+        {% endif %}
+        {{ person.university }}<br>
+        {{ person.graduation_year }}<br>
+        {% avatar person.user %}
+      
+    </div>
+  </div>
+
+  <script src="/static/foundation/js/vendor/jquery.js"></script>
+  <script src="/static/foundation/js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

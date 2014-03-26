@@ -1,3 +1,4 @@
+{% load avatar_tags %}
 <!DOCTYPE html>
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
 <html class="no-js" lang="en" >
@@ -21,7 +22,7 @@
       <h1>People</h1>
 
       {% for person in people %}
-        <h4>{{ person.name }}</h4>
+        <h4><a href="{{ person.get_absolute_url }}">{{ person.user.get_full_name }}</a></h4>
         <p>
           {% if person.url %}
             <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ person.url }}">{{ person.url }}</a><br>
@@ -40,6 +41,7 @@
           {% endif %}
           {{ person.university }}<br>
           {{ person.graduation_year }}<br>
+          {% avatar person.user %}
         </p>
       {% endfor %}
     </div>

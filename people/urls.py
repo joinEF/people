@@ -13,4 +13,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', views.index),
+
+    (r'^avatar/', include('avatar.urls')),
+
+    url(r'^(?P<username>\w+)$', views.profile),
 )
