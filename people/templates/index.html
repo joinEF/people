@@ -1,3 +1,38 @@
 {% extends '__page.html' %}
 
+{% load static }
+{% load avatar_tags %}
+
 {% block head_title %}Founder School{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="column">
+      <h1 style="margin-top: 1rem; margin-bottom: 2rem;">People</h1>
+
+      <ul class="medium-block-grid-3">
+        {% for person in people %}  
+          <li>
+            <div class="row">
+              <div class="column small-4">
+                <a href="/{{ person.user.username }}">
+                  <img src="{% avatar_url person.user 200 %}" style="border-radius: 5px;">
+                </a>
+              </div>
+              <div class="column small-8">
+                <h5 style="margin-top: 0;">
+                  <a href="/{{ person.user.username }}">{{ person.user.get_full_name }}</a> 
+                </h5>
+                <p>
+                  {{ person.degree_subject }}, {{ person.university }}<br>
+                  {{ person.graduation_year }}<br>
+                </p>
+              </div>
+            </div>
+
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

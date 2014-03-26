@@ -16,7 +16,8 @@ def index(request):
             'linkedin': 'calumjeadie',
             'url': 'http://calumjeadie.com',
             'user': users[0],
-            'get_absolute_url': '/CalumJEadie'
+            'get_absolute_url': '/CalumJEadie',
+            'degree_subject': 'CS'
         },
         {
             'university': 'Cambridge',
@@ -27,7 +28,8 @@ def index(request):
             'linkedin': 'jordanburgess',
             'url': 'http://jordanburgess.com/',
             'user': users[1],
-            'get_absolute_url': '/jordnb'
+            'get_absolute_url': '/jordnb',
+            'degree_subject': 'Engineering'
         },
         {
             'university': 'Cambridge',
@@ -37,7 +39,8 @@ def index(request):
             'linkedin': 'fraseratkins',
             'url': 'http://www.fraseratkins.com/',
             'user': users[2],
-            'get_absolute_url': '/FraserAtkins'
+            'get_absolute_url': '/FraserAtkins',
+            'degree_subject': 'Engineering'
         },
         {
             'university': 'Imperial & Oxford',
@@ -47,7 +50,8 @@ def index(request):
             'linkedin': 'josephsroot',
             'url': 'http://joeroot.com/',
             'user': users[3],
-            'get_absolute_url': '/joeroot'
+            'get_absolute_url': '/joeroot',
+            'degree_subject': 'CS'
         }
     ]
 
