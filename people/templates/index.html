@@ -38,6 +38,8 @@
           {% if person.linkedin %}
             <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ person.linkedin }}">{{ person.linkedin }}</a><br>
           {% endif %}
+          {{ person.university }}<br>
+          {{ person.graduation_year }}<br>
         </p>
       {% endfor %}
     </div>

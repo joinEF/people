@@ -28,7 +28,7 @@ def index(request):
         {
             'name': 'Fraser Atkins',
             'email': 'jordanburgess@gmail.com',
-            'university': 'London',
+            'university': 'Cambridge',
             'graduation_year': 2013,
             'location': 'London',
             'twitter': 'FraserAtkins',
@@ -37,7 +37,7 @@ def index(request):
         },
         {
             'name': 'Joe Root',
-            'university': 'London',
+            'university': 'Imperial & Oxford',
             'graduation_year': 2012,
             'location': 'London',
             'twitter': 'joeroot',
