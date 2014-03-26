@@ -104,3 +104,7 @@ def profile(request, username):
     person = people[user.username]
 
     return render(request, 'profile.html', {'person': person})
+
+def about(request):
+
+    return render(request, 'about.html')
