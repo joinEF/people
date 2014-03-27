@@ -25,6 +25,9 @@
             </p>
             <hr>
             <p>
+              <a href="mailto:{{ person.email }}" class="button expand small" style="margin-bottom: 0;">CONTACT</a>
+            </p>
+            <p>
               {% if person.url %}
                 <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ person.url }}">{{ person.url }}</a><br>
               {% endif %}
@@ -39,6 +42,7 @@
                 <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ person.linkedin }}">{{ person.linkedin }}</a><br>
               {% endif %}
             </p>
+
           </div>
           <div class="column small-9">
           </div>
