@@ -5,24 +5,47 @@
 {% block content %}
   <div class="row">
     <div class="column">
-      <h1 style="margin-top: 1rem; margin-bottom: 2rem;">Login</h1>
+
+      <h1 style="margin-top: 1rem; margin-bottom: 2rem;">Sign in</h1>
 
       <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
           {% csrf_token %}
-
-          {% if form.errors %}
-            <p>Your username and password didn't match. Please try again.</p>
-          {% endif %}
-
-          <label for="id_username">Username</label>
-          <input type="text" name="username" placeholder="Username" class="text" id="id_username">
-          <br />
-          <label for="id_password">Password</label>
-          <input type="password" name="password" placeholder="Password" class="text" id="id_password">
-          <br />
-
-          <input type="submit" value="Log in" />
           <input type="hidden" name="next" value="{{ next }}" />
+
+          <div class="row">
+            <div class="column small-6 small-centered">
+
+              {% if form.errors %}
+                <div data-alert class="alert-box alert radius">
+                  Incorrect username or password.
+                </div>
+              {% endif %}
+
+              <div class="row">
+                <div class="column small-3">
+                  <label for="id_username" class="right inline">Username</label>
+                </div>
+                <div class="column small-9">
+                  <input type="text" name="username" id="id_username">
+                </div>
+              </div>
+              <div class="row">
+                <div class="column small-3">
+                  <label for="id_password" class="right inline">Password</label>
+                </div>
+                <div class="column small-9">
+                  <input type="password" name="password" id="id_password">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column small-9 small-offset-3">
+                  <input type="submit" value="Sign in" class="button">
+                </div>
+              </div>
+
+            </div>
+          </div>
 
       </form>
     </div>
