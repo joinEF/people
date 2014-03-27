@@ -1,7 +1,9 @@
 People
 ======
 
-http://founder-school-people.herokuapp.com/
+http://ef-founders-school-people.herokuapp.com/
+
+http://effoudersschool.com
 
 Local Development
 -----------------
