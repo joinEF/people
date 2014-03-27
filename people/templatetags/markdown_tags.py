@@ -11,7 +11,8 @@ from django.utils.safestring import mark_safe
 
 register = template.Library()
 
-@register.filter(is_safe=True)
+# @register.filter(is_safe=True)
+@register.filter
 @stringfilter
 def markdown(value):
     extensions = ["nl2br", ]
@@ -19,7 +20,7 @@ def markdown(value):
     return mark_safe(
         python_markdown.markdown(force_unicode(value),
            extensions,
-           safe_mode=True,
+           # safe_mode=True,
            enable_attributes=False
         )
     )
