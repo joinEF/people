@@ -27,25 +27,26 @@
               <li><a href="/CalumJEadie">View profile</a></li>
               <li><a href="/account">Manage account</a></li>
               <li class="divider"></li>
-              <li><a href="/logout">Logout</a></li>
+              <li><a href="/logout">Sign out</a></li>
             </ul>
           </li>
         {% else %}
-          <li>
-            <a href="/join" class="button">Sign up</a>
+          <li style="margin-left: 0.5rem; margin-right: 0.5rem;">
+            <a href="/join" class="button">Request to join</a>
           </li>
-          <li>
-            <a href="/login">Sign in</a>
+          <li style="margin-left: 0.5rem;">
+            <a href="/login" class="button secondary">Sign in</a>
           </li>
         {% endif %}
       </ul>
 
       <!-- Left Nav Section -->
       <ul class="left">
-        <li><a href="/about">About</a></li>
         {% if user.is_authenticated %}
           <li><a href="/feedback">Feedback</a></li>
         {% endif %}
+        <li><a href="http://www.entrepreneurfirst.org.uk">EF</a></li>
+        <li><a href="http://www.codefirstgirls.org.uk">Code First: Girls</a></li>
       </ul>
     </section>
   </nav>

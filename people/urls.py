@@ -13,7 +13,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', views.index),
-    url(r'^about$', views.about),
 
     (r'^avatar/', include('avatar.urls')),
 
