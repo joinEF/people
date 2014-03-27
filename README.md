@@ -63,7 +63,7 @@ python manage.py createsuperuser
 ### Running web server
 
 ```sh
-foreman start
+python manage.py runserver 0.0.0.0:$PORT
 ```
 
 ### Accessing site
