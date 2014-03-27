@@ -11,21 +11,21 @@
       <h1 style="margin-top: 1rem; margin-bottom: 2rem;">People</h1>
 
       <ul class="medium-block-grid-3">
-        {% for person in people %}  
+        {% for user in users %}  
           <li>
             <div class="row">
               <div class="column small-4">
-                <a href="/{{ person.user.username }}">
-                  <img src="{% avatar_url person.user 200 %}" style="border-radius: 5px;">
+                <a href="{{ user.profile.get_absolute_url }}">
+                  <img src="{% avatar_url user 200 %}" style="border-radius: 5px;">
                 </a>
               </div>
               <div class="column small-8">
                 <h5 style="margin-top: 0;">
-                  <a href="/{{ person.user.username }}">{{ person.user.get_full_name }}</a> 
+                  <a href="{{ user.profile.get_absolute_url }}">{{ user.get_full_name }}</a> 
                 </h5>
                 <p>
-                  {{ person.degree_subject }}, {{ person.university }}<br>
-                  {{ person.graduation_year }}<br>
+                  {{ user.profile.degree_subject }}, {{ user.profile.university }}<br>
+                  {{ user.profile.graduation_year }}<br>
                 </p>
               </div>
             </div>

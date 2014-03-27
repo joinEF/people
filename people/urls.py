@@ -17,5 +17,5 @@ urlpatterns = patterns('',
 
     (r'^avatar/', include('avatar.urls')),
 
-    url(r'^(?P<username>\w+)$', views.profile),
+    url(r'^(?P<username>\w+)$', views.profile, name='profile'),
 )
