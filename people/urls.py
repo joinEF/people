@@ -17,5 +17,11 @@ urlpatterns = patterns('',
 
     (r'^avatar/', include('avatar.urls')),
 
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout_then_login'),
+
+    url(r'^login$', 'django.contrib.auth.views.login'),
+    url(r'^logout$', 'django.contrib.auth.views.logout_then_login'),
+
     url(r'^(?P<username>\w+)$', views.profile, name='profile'),
 )
