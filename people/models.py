@@ -18,6 +18,7 @@ class UserProfile(models.Model):
     linkedin = models.CharField(max_length=50, blank=True)
     url = models.URLField(blank=True)
     degree_subject = models.CharField(max_length=50, blank=True)
+    # description = models.TextField(blank=True)
 
     def get_absolute_url(self):
         # return reverse('people.profile', args=[self.user.username])
@@ -30,13 +31,5 @@ class UserProfile(models.Model):
     def _create(cls, sender, instance, created, **kwargs):  
         if created:  
            profile, created = cls.objects.get_or_create(user=instance)
-
-    description = """
-# header 1
-
-paragraph 1
-
-template tag >>{{ user }}<<
-    """
 
 post_save.connect(UserProfile._create, sender=User)
