@@ -4,8 +4,14 @@ from django.contrib.auth.models import User
 
 def index(request):
 
-    users = User.objects.all()
-    return render(request, 'index.html', {'users': users})
+    if request.user.is_authenticated():
+
+        users = User.objects.all()
+        return render(request, 'people.html', {'users': users})
+
+    else:
+
+        return render(request, 'marketing.html')
 
 def profile(request, username):
 
