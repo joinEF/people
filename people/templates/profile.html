@@ -3,7 +3,7 @@
 {% load static }
 {% load avatar_tags %}
 
-{% block head_title %}{{ user.get_full_name }}{% endblock %}
+{% block head_title %}{{ profile_user.get_full_name }}{% endblock %}
 
 {% block content %}
   <div class="row">
@@ -11,35 +11,35 @@
 
         <div class="row" style="margin-top: 2rem;">
           <div class="column small-3">
-            <img src="{% avatar_url user 400 %}" style="border-radius: 5px;">
+            <img src="{% avatar_url profile_user 400 %}" style="border-radius: 5px;">
             <h3 style="margin-top: 1rem; margin-bottom: 0;">
-              {{ user.get_full_name }}
+              {{ profile_user.get_full_name }}
             </h3>
             <h5 class="subheader" style="margin-top: 0;">
-              {{ user.username }}
+              {{ profile_user.profile_username }}
             </h5>
             <hr>
             <p>
-              {{ user.profile.degree_subject }}, {{ user.profile.university }}<br>
-              {{ user.profile.graduation_year }}<br>
+              {{ profile_user.profile.degree_subject }}, {{ profile_user.profile.university }}<br>
+              {{ profile_user.profile.graduation_year }}<br>
             </p>
             <hr>
             <p>
-              <a href="mailto:{{ user.profile.email }}" class="button expand small" style="margin-bottom: 0;">CONTACT</a>
+              <a href="mailto:{{ profile_user.profile.email }}" class="button expand small" style="margin-bottom: 0;">CONTACT</a>
             </p>
             <p>
-              {% if user.profile.url %}
-                <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ user.profile.url }}">{{ user.profile.url }}</a><br>
+              {% if profile_user.profile.url %}
+                <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ profile_user.profile.url }}">{{ profile_user.profile.url }}</a><br>
               {% endif %}
-              <i class="fi-mail"></i>&nbsp;&nbsp;<a href="mailto:{{ user.profile.email }}">{{ user.email }}</a><br>
-              {% if user.profile.twitter %}
-                <i class="fi-social-twitter"></i>&nbsp;&nbsp;<a href="https://twitter.com/{{ user.profile.twitter }}">@{{ user.profile.twitter }}</a><br>
+              <i class="fi-mail"></i>&nbsp;&nbsp;<a href="mailto:{{ profile_user.profile.email }}">{{ profile_user.email }}</a><br>
+              {% if profile_user.profile.twitter %}
+                <i class="fi-social-twitter"></i>&nbsp;&nbsp;<a href="https://twitter.com/{{ profile_user.profile.twitter }}">@{{ profile_user.profile.twitter }}</a><br>
               {% endif %}
-              {% if user.profile.github %}
-                <i class="fi-social-github"></i>&nbsp;&nbsp;<a href="https://github.com/{{ user.profile.github }}">{{ user.profile.github }}</a><br>
+              {% if profile_user.profile.github %}
+                <i class="fi-social-github"></i>&nbsp;&nbsp;<a href="https://github.com/{{ profile_user.profile.github }}">{{ profile_user.profile.github }}</a><br>
               {% endif %}
-              {% if user.profile.linkedin %}
-                <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ user.profile.linkedin }}">{{ user.profile.linkedin }}</a><br>
+              {% if profile_user.profile.linkedin %}
+                <i class="fi-social-linkedin"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/{{ profile_user.profile.linkedin }}">{{ profile_user.profile.linkedin }}</a><br>
               {% endif %}
             </p>
 
