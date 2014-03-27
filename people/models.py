@@ -29,6 +29,14 @@ class UserProfile(models.Model):
     @classmethod
     def _create(cls, sender, instance, created, **kwargs):  
         if created:  
-           profile, created = cls.objects.get_or_create(user=instance)  
+           profile, created = cls.objects.get_or_create(user=instance)
+
+    description = """
+# header 1
+
+paragraph 1
+
+template tag >>{{ user }}<<
+    """
 
 post_save.connect(UserProfile._create, sender=User)
