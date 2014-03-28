@@ -22,4 +22,14 @@ def profile(request, username):
 
 def join(request):
 
-    return render(request, 'join.html')
+    return render(request, 'in_progress.html')
+
+@login_required
+def manage_account(request):
+
+    return render(request, 'in_progress.html')
+
+@login_required
+def feedback(request):
+
+    return render(request, 'in_progress.html')
