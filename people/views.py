@@ -75,4 +75,4 @@ def manage_account(request):
 @login_required
 def feedback(request):
 
-    return render(request, 'in_progress.html')
+    return render(request, 'feedback.html')
