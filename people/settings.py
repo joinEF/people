@@ -109,3 +109,10 @@ AUTH_PROFILE_MODULE = 'people.UserProfile'
 SEGMENT_IO_API_WRITE_KEY = os.environ.get('SEGMENT_IO_API_WRITE_KEY', None)
 
 LOGIN_REDIRECT_URL = '/'
+
+# Sendgrid
+EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
+EMAIL_HOST= 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
