@@ -107,3 +107,5 @@ AUTH_PROFILE_MODULE = 'people.UserProfile'
 
 # None - Segment.io integration disabled
 SEGMENT_IO_API_WRITE_KEY = os.environ.get('SEGMENT_IO_API_WRITE_KEY', None)
+
+LOGIN_REDIRECT_URL = '/'
