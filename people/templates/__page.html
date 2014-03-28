@@ -32,7 +32,7 @@
           </li>
         {% else %}
           <li style="margin-left: 0.5rem; margin-right: 0.5rem;">
-            <a href="/accounts/join/" class="button">Request to join</a>
+            <a href="{% url 'people.views.join' %}" class="button">Request to join</a>
           </li>
           <li style="margin-left: 0.5rem;">
             <a href="/accounts/login/" class="button secondary">Sign in</a>

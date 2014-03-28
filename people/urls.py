@@ -18,7 +18,7 @@ urlpatterns = patterns('',
 
     url(r'^accounts/login/$', 'django.contrib.auth.views.login', name="login"),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page':'/'}, name="logout"),
-    url(r'^accounts/join/$', views.join),
+    url(r'^accounts/join/$', views.join, name="join"),
     url(r'^accounts/manage/$', views.manage_account),
 
     url(r'^feedback/$', views.feedback),

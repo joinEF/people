@@ -116,3 +116,6 @@ EMAIL_HOST= 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
+
+# Request to join
+REQUEST_TO_JOIN_EMAILS = os.environ.get('REQUEST_TO_JOIN_EMAILS', '').split(',')

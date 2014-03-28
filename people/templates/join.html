@@ -1,0 +1,91 @@
+{% extends '__page.html' %}
+
+{% block head_title %}Join{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="column">
+
+      <h1 style="margin-top: 1rem; margin-bottom: 2rem;">Join</h1>
+
+      {% if valid %}
+
+        <p>We'll be in touch soon!</p>
+
+      {% else %}
+
+        <div class="row">
+          <div class="column small-8 small-centered">
+
+            <form method="post" action="{% url 'people.views.join' %}">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                  <div data-alert class="alert-box alert radius">
+                    All fields are required.
+                  </div>
+                {% endif %}
+
+              <div class="row">
+                <div class="column small-3">
+                  <label class="right inline" for="id_email">Email</label>
+                </div>
+                <div class="column small-9">
+                  <input id="id_email" name="email" type="email">
+                </div>
+              </div>
+              <div class="row">
+                <div class="column small-3">
+                  <label class="right inline" for="id_first_name">First name</label>
+                </div>
+                <div class="column small-9">
+                  <input id="id_first_name" name="first_name" type="text">
+                </div>
+              </div>
+              <div class="row">
+                <div class="column small-3">
+                  <label class="right inline" for="id_last_name">Last name</label>
+                </div>
+                <div class="column small-9">
+                  <input id="id_last_name" name="last_name" type="text">
+                </div>
+              </div>
+              <div class="row">
+                <div class="column small-3">
+                  <label class="right inline" for="id_university">University</label>
+                </div>
+                <div class="column small-9">
+                  <input id="id_university" name="university" type="text">
+                </div>
+              </div>
+              <div class="row">
+                <div class="column small-3">
+                  <label class="right inline" for="id_degree_subject">Degree subject</label>
+                </div>
+                <div class="column small-9">
+                  <input id="id_degree_subject" name="degree_subject" type="text">
+                </div>
+              </div>
+              <div class="row">
+                <div class="column small-3">
+                  <label class="right inline" for="id_graduation_year">Graduation year</label>
+                </div>
+                <div class="column small-9">
+                  <input id="id_graduation_year" name="graduation_year" type="number">
+                </div>
+              </div>
+              <div class="row">
+                <div class="column small-3 small-offset-3">
+                  <input type="submit" value="Request to join" class="button">
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
