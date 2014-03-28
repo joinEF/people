@@ -48,7 +48,6 @@ unset SEGMENT_IO_API_WRITE_KEY
 2. a. Pull database from remote to local.
 
 ```sh
-createdb people
 heroku pg:pull DATABASE_URL people
 ```
 
