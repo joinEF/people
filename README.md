@@ -40,6 +40,7 @@ echo DJANGO_DEBUG=true >> .env
 echo PORT=8000 >> .env
 heroku config:pull
 for variable in `cat .env`; do; export $variable; done;
+unset SEGMENT_IO_API_WRITE_KEY
 ```
 
 2. Either 2. a. or 2. b.
