@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
-from forms import JoinForm
+from forms import JoinForm, UserForm, UserProfileForm
 import settings
 
 def index(request):
@@ -60,7 +62,7 @@ Graduation year: %s
             valid = True
 
     else:
-        form = JoinForm() # An unbound form
+        form = JoinForm()
 
     return render(request, 'join.html', {
         'form': form,
@@ -69,8 +71,30 @@ Graduation year: %s
 
 @login_required
 def manage_account(request):
+    # http://stackoverflow.com/questions/569468/django-multiple-models-in-one-template-using-forms
+    # http://collingrady.wordpress.com/2008/02/18/editing-multiple-objects-in-django-with-newforms/
 
-    return render(request, 'in_progress.html')
+    if request.method == 'POST':    
+
+        user_form = UserForm(request.POST, instance=request.user)
+        user_profile_form = UserProfileForm(request.POST, instance=request.user.profile)
+
+        if user_form.is_valid() and user_profile_form.is_valid():
+
+            user_form.save()
+            user_profile_form.save()
+
+            return HttpResponseRedirect(reverse(manage_account))
+
+    else:
+
+        user_form = UserForm(instance=request.user)
+        user_profile_form = UserProfileForm(instance=request.user.profile)
+
+    return render(request, 'manage_account.html', {
+        'user_form': user_form,
+        'user_profile_form': user_profile_form
+    })
 
 @login_required
 def feedback(request):
