@@ -24,7 +24,7 @@ urlpatterns = patterns('',
 
     url(r'^feedback/$', views.feedback),
 
-    url(r'^(?P<username>\w+)/(?P<project_name>\w+)$', views.project, name='project'),
+    url(r'^projects/(?P<project_id>\d+)/', views.project, name='project'),
 
     url(r'^(?P<username>\w+)$', views.profile, name='profile'),
 )

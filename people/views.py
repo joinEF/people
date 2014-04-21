@@ -109,8 +109,7 @@ def feedback(request):
     return render(request, 'feedback.html')
 
 @login_required
-def project(request, username, project_name):
+def project(request, project_id):
 
-    # user = get_object_or_404(User, username=username)
-    # project = get_object_or_404(Project, name=project_name)
-    return render(request, 'profile.html', {'project_user': user, 'project': project})
+    project = get_object_or_404(Project, pk=project_id)
+    return render(request, 'project.html', {'project': project})

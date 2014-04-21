@@ -4,7 +4,7 @@
 {% load avatar_tags %}
 {% load markdown_tags %}
 
-{% block head_title %}{{ project_user.get_full_name }} / {{ project.name }}{% endblock %}
+{% block head_title %}{{ project.title }}{% endblock %}
 
 {% block content %}
   <div class="row">
@@ -12,7 +12,16 @@
 
         <div class="row" style="margin-top: 2rem;">
           <div class="column">
-            {{ profile.description | markdown }}
+            <h1>{{ project.title }}</h1>
+            <p>{{ project.summary }}</p>
+
+            {% for project_user in project.users.all %}
+                <a href="{{ project_user.profile.get_absolute_url }}">
+                  <img src="{% avatar_url project_user 200 %}" style="border-radius: 5px; width: 80px;">
+                </a>
+              {% endfor %}
+
+            {{ project.description | markdown }}
           </div>
         </div>
     </div>
