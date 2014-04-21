@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
-from models import UserProfile
+from models import UserProfile, Project
 
 # See https://docs.djangoproject.com/en/1.6/topics/auth/customizing/#extending-the-existing-user-model
 
@@ -25,3 +25,4 @@ admin.site.register(User, UserAdmin)
 
 
 admin.site.register(UserProfile)
+admin.site.register(Project)

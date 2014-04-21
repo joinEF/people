@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 
 from forms import JoinForm, UserForm, UserProfileForm
 import settings
+from models import Project
 
 def index(request):
 
@@ -18,6 +19,12 @@ def index(request):
     else:
 
         return render(request, 'marketing.html')
+
+@login_required
+def projects(request):
+
+    projects = Project.objects.all()
+    return render(request, 'projects.html', {'projects': projects})
 
 @login_required
 def profile(request, username):
@@ -100,3 +107,10 @@ def manage_account(request):
 def feedback(request):
 
     return render(request, 'feedback.html')
+
+@login_required
+def project(request, username, project_name):
+
+    # user = get_object_or_404(User, username=username)
+    # project = get_object_or_404(Project, name=project_name)
+    return render(request, 'profile.html', {'project_user': user, 'project': project})

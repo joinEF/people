@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', views.index),
+    url(r'^projects/$', views.projects),
 
     (r'^avatar/', include('avatar.urls')),
 
@@ -22,6 +23,8 @@ urlpatterns = patterns('',
     url(r'^accounts/manage/$', views.manage_account),
 
     url(r'^feedback/$', views.feedback),
+
+    url(r'^(?P<username>\w+)/(?P<project_name>\w+)$', views.project, name='project'),
 
     url(r'^(?P<username>\w+)$', views.profile, name='profile'),
 )

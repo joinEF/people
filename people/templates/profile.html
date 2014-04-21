@@ -47,6 +47,11 @@
 
           </div>
           <div class="column small-9">
+            {% if profile_user.projects %}
+              {% for project in profile_user.projects.all %}
+                <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+              {% endfor %}
+            {% endif %}
             {{ profile_user.profile.description | markdown }}
           </div>
       

@@ -1,0 +1,20 @@
+{% extends '__page.html' %}
+
+{% load static }
+{% load avatar_tags %}
+{% load markdown_tags %}
+
+{% block head_title %}{{ project_user.get_full_name }} / {{ project.name }}{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="columns">
+
+        <div class="row" style="margin-top: 2rem;">
+          <div class="column">
+            {{ profile.description | markdown }}
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}
