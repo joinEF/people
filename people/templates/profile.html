@@ -13,12 +13,11 @@
         <div class="row" style="margin-top: 2rem;">
           <div class="column medium-4 large-3">
             <img src="{% avatar_url profile_user 400 %}" style="border-radius: 5px;">
-            <h3 style="margin-top: 1rem; margin-bottom: 0;">
-              {{ profile_user.get_full_name }}
-            </h3>
-            <h5 class="subheader" style="margin-top: 0;">
-              {{ profile_user.profile_username }}
-            </h5>
+            {% if user != profile_user %}
+              <p style="margin-top:1rem;">
+                <a href="mailto:{{ profile_user.email }}" class="button expand small" style="margin-bottom: 0;">CONTACT</a>
+              </p>
+            {% endif %}
             <hr>
             <p>
               {{ profile_user.profile.degree_subject }}<br>
@@ -26,9 +25,6 @@
               {{ profile_user.profile.graduation_year }}<br>
             </p>
             <hr>
-            <p>
-              <a href="mailto:{{ profile_user.email }}" class="button expand small" style="margin-bottom: 0;">CONTACT</a>
-            </p>
             <p>
               {% if profile_user.profile.url %}
                 <i class="fi-web"></i>&nbsp;&nbsp;<a href="{{ profile_user.profile.url }}">{{ profile_user.profile.url }}</a><br>
@@ -47,12 +43,39 @@
 
           </div>
           <div class="column medium-8 large-9">
-            {% if profile_user.projects %}
+
+            <div class="clearfix">
+
+              <h1 style="line-height: 1; margin-bottom: 1.5rem;" class="left">
+                {{ profile_user.get_full_name }}
+              </h1>
+
+              {% if user == profile_user %}
+                <a href="/accounts/manage/" class="button small right secondary round">Edit your profile</a>
+              {% endif %}
+
+            </div>
+
+            {% if profile_user.profile.description %}
+              {{ profile_user.profile.description | markdown }}
+            {% endif %}
+
+            {% if profile_user.projects.all %}
+              <div class="clearfix" style="margin-top: 3rem;">
+                <h3 class="left">Projects</h3>
+                {% if user == profile_user %}
+                  <a href="/projects/new/" class="button small right secondary round">New</a>
+                {% endif %}
+              </div>
+
               {% for project in profile_user.projects.all %}
-                <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+                <div style="margin-bottom: 2rem;">
+                  <h4><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h4>
+
+                  <p>{{ project.summary }}</p>
+                </div>
               {% endfor %}
             {% endif %}
-            {{ profile_user.profile.description | markdown }}
           </div>
       
     </div>
