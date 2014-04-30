@@ -11,7 +11,7 @@
     <div class="columns">
 
         <div class="row" style="margin-top: 2rem;">
-          <div class="column small-3">
+          <div class="column medium-4 large-3">
             <img src="{% avatar_url profile_user 400 %}" style="border-radius: 5px;">
             <h3 style="margin-top: 1rem; margin-bottom: 0;">
               {{ profile_user.get_full_name }}
@@ -46,7 +46,7 @@
             </p>
 
           </div>
-          <div class="column small-9">
+          <div class="column medium-8 large-9">
             {% if profile_user.projects %}
               {% for project in profile_user.projects.all %}
                 <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
