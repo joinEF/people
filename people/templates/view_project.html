@@ -20,8 +20,8 @@
               </h1>
 
               {% if user in project.users.all %}
-                <a href="{{ project.get_absolute_url }}/delete" class="button small right secondary round">Delete</a>
-                <a href="{{ project.get_absolute_url }}/edit" class="button small right secondary round" style="margin-right: 0.5rem;">Edit</a>
+                <a href="{{ project.get_absolute_url }}/delete/" class="button small right secondary round">Delete</a>
+                <a href="{{ project.get_absolute_url }}/edit/" class="button small right secondary round" style="margin-right: 0.5rem;">Edit</a>
               {% endif %}
 
             </div>

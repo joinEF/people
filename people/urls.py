@@ -24,7 +24,10 @@ urlpatterns = patterns('',
 
     url(r'^feedback/$', views.feedback),
 
-    url(r'^projects/(?P<project_id>\d+)/', views.project, name='project'),
+    url(r'^projects/new/$', views.edit_project, name='new_project'),
+    url(r'^projects/(?P<project_id>\d+)/[\w-]+/edit/$', views.edit_project, name='edit_project'),
+    url(r'^projects/(?P<project_id>\d+)/[\w-]+/delete/$', views.delete_project, name='delete_project'),
+    url(r'^projects/(?P<project_id>\d+)/', views.view_project, name='view_project'),
 
-    url(r'^(?P<username>\w+)$', views.profile, name='profile'),
+    url(r'^(?P<username>\w+)/$', views.profile, name='profile'),
 )

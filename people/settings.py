@@ -119,3 +119,7 @@ EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
 
 # Request to join
 REQUEST_TO_JOIN_EMAILS = os.environ.get('REQUEST_TO_JOIN_EMAILS', '').split(',')
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda o: "/%s/" % o.username,
+}

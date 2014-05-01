@@ -1,0 +1,31 @@
+{% extends '__page.html' %}
+
+{% block head_title %}Create Project{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="column">
+
+      <h1 style="margin-top: 1rem; margin-bottom: 2rem;">Create Project</h1>
+
+      <div class="row">
+        <div class="column">
+
+          <form method="post" action="{% url 'new_project' %}">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="row">
+              <div class="column">
+                <input type="submit" value="Create Project" class="button">
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

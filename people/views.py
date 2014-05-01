@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.core.urlresolvers import reverse
 
-from forms import JoinForm, UserForm, UserProfileForm
+from forms import JoinForm, UserForm, UserProfileForm, ProjectForm
 import settings
 from models import Project
 
@@ -109,7 +109,53 @@ def feedback(request):
     return render(request, 'feedback.html')
 
 @login_required
-def project(request, project_id):
+def view_project(request, project_id):
 
     project = get_object_or_404(Project, pk=project_id)
-    return render(request, 'project.html', {'project': project})
+    return render(request, 'view_project.html', {'project': project})
+
+
+@login_required
+def edit_project(request, project_id=None):
+    # http://wiki.ddenis.com/index.php?title=Django,_add_and_edit_object_together_in_the_same_form
+
+    if project_id:
+        print "exists"
+        project = get_object_or_404(Project, pk=project_id)
+        if request.user not in project.users.all():
+            return HttpResponseForbidden
+    else:
+        print "doesn't exist"
+        project = Project()
+
+    if request.method == 'POST':
+
+        form = ProjectForm(request.POST, instance=project)
+
+        if form.is_valid():
+
+            form.save()
+
+            return HttpResponseRedirect(project.get_absolute_url())
+
+    else:
+
+        form = ProjectForm(instance=project)
+
+    if project_id:
+        template_name = 'edit_project.html'
+    else:
+        template_name = 'new_project.html'
+
+    return render(request, template_name, {
+        'form': form,
+        'project': project
+    })
+
+
+@login_required
+def delete_project(request, project_id):
+
+    project = get_object_or_404(Project, pk=project_id)
+    project.delete()
+    return redirect(request.user)
