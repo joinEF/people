@@ -123,7 +123,7 @@ def edit_project(request, project_id=None):
         print "exists"
         project = get_object_or_404(Project, pk=project_id)
         if request.user not in project.users.all():
-            return HttpResponseForbidden
+            return HttpResponseForbidden()
     else:
         print "doesn't exist"
         project = Project()
@@ -157,5 +157,7 @@ def edit_project(request, project_id=None):
 def delete_project(request, project_id):
 
     project = get_object_or_404(Project, pk=project_id)
+    if request.user not in project.users.all():
+        return HttpResponseForbidden()
     project.delete()
     return redirect(request.user)
