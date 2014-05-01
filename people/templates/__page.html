@@ -44,6 +44,9 @@
       <!-- Left Nav Section -->
       <ul class="left">
         {% if user.is_authenticated %}
+          {% if user.is_staff %}
+            <li><a href="/admin/">Admin</a></li>
+          {% endif %}
           <li><a href="/">People</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/feedback/">Feedback</a></li>
