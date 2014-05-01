@@ -1,0 +1,34 @@
+{% extends '__page.html' %}
+
+{% load static }
+{% load avatar_tags %}
+
+{% block head_title %}Projects{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="column">
+      <h1 style="margin-top: 1rem; margin-bottom: 2rem;">Projects</h1>
+
+      {% for project in projects %}
+        <div style="margin-bottom: 2rem;">
+          <div class="clearfix">
+            <h4 class="left">
+              <a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
+            </h4>
+
+            <p class="right">
+              {% for project_user in project.users.all %}
+                <a href="{{ project_user.profile.get_absolute_url }}">
+                  <img src="{% avatar_url project_user 200 %}" style="border-radius: 5px; width: 50px;">
+                </a>
+              {% endfor %}
+            </p>
+          </div>
+
+          <p>{{ project.summary }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
